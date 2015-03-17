@@ -4,6 +4,7 @@ module Phase2
 
     # Setup the controller
     def initialize(req, res)
+      @req, @res = req, res
     end
 
     # Helper method to alias @already_built_response
@@ -18,6 +19,8 @@ module Phase2
     # Set the response's content type to the given type.
     # Raise an error if the developer tries to double render.
     def render_content(content, content_type)
+      @res.content_type = content_type
+      @res.body = content
     end
   end
 end
