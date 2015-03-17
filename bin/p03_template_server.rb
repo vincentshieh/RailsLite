@@ -12,7 +12,7 @@ class MyController < Phase3::ControllerBase
   end
 end
 
-server = WEBrick::HTTPServer.new(Port: 3000)
+server = WEBrick::HTTPServer.new(Port: 3001)
 server.mount_proc('/') do |req, res|
   MyController.new(req, res).go
 end
