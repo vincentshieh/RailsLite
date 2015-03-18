@@ -23,7 +23,7 @@ describe Phase6::Route do
       index_route.matches?(req).should be true
     end
 
-    it "correctly doesn't matche regular expression with capture" do
+    it "correctly doesn't match regular expression with capture" do
       index_route = Phase6::Route.new(Regexp.new("^/users/(?<id>\\d+)$"), :get, "UsersController", :index)
       allow(req).to receive(:path).and_return("/statuses/1")
       index_route.matches?(req).should be false
