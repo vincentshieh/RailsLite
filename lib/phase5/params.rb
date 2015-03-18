@@ -47,7 +47,7 @@ module Phase5
           end
         end
 
-        @params.deep_merge(outer_hash)
+        @params.my_deep_merge!(outer_hash)
       end
 
       @params
@@ -76,12 +76,10 @@ module Phase5
 end
 
 class Hash
-  def deep_merge(other_hash)
-    common_keys = self.keys.select { |key| other_hash.has_key?(key) }
-
+  def my_deep_merge!(other_hash)
     other_hash.each do |key, value|
-      if self.has_key?(key)
-        self[key].deep_merge(other_hash[key])
+      if self.has_key?(key) && self[key].is_a?(Hash)
+        self[key].my_deep_merge!(other_hash[key])
       else
         self[key] = value
       end
