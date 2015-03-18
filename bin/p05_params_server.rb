@@ -53,7 +53,7 @@ class CatsController < Phase5::ControllerBase
   end
 end
 
-server = WEBrick::HTTPServer.new(Port: 3000)
+server = WEBrick::HTTPServer.new(Port: 3001)
 server.mount_proc('/') do |req, res|
   case [req.request_method, req.path]
   when ['GET', '/cats']
