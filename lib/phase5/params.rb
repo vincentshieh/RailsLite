@@ -56,21 +56,23 @@ module Phase5
     # this should return an array
     # user[address][street] should return ['user', 'address', 'street']
     def parse_key(key)
-      keys_arr = []
-      remaining_keys = key
+      key.scan(/\w+/)
 
-      if /(\w+)(\]\[|\[|\])/.match(remaining_keys)
-        loop do
-          current_match_data = /(\w+)(\]\[|\[|\])/.match(remaining_keys)
-          keys_arr << current_match_data[1]
-          remaining_keys.slice!(current_match_data[0])
-          break if remaining_keys == ""
-        end
-      else
-        keys_arr << remaining_keys
-      end
-
-      keys_arr
+      # keys_arr = []
+      # remaining_keys = key
+      #
+      # if /(\w+)(\]\[|\[|\])/.match(remaining_keys)
+      #   loop do
+      #     current_match_data = /(\w+)(\]\[|\[|\])/.match(remaining_keys)
+      #     keys_arr << current_match_data[1]
+      #     remaining_keys.slice!(current_match_data[0])
+      #     break if remaining_keys == ""
+      #   end
+      # else
+      #   keys_arr << remaining_keys
+      # end
+      #
+      # keys_arr
     end
   end
 end

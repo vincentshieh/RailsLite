@@ -15,11 +15,11 @@ module Phase4
     end
 
     def [](key)
-      @session_hash[key]
+      @session_hash[key.to_s]
     end
 
     def []=(key, val)
-      @session_hash[key] = val
+      @session_hash[key.to_s] = val
     end
 
     # serialize the hash into json and save in a cookie
